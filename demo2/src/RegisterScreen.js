@@ -32,14 +32,7 @@ export default function RegisterScreen() {
           padding: 15,
         }}>
         {/* Username */}
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Icon name="user" size={35} color="#0007" />
-          <TextInput
-            placeholder="Username"
-            onChangeText={(text) => setUsername(text)}
-            style={{backgroundColor: '#0003', flex: 1, marginLeft: 5}}
-          />
-        </View>
+        <CMEntry />
 
         {/* Separator */}
         <View style={{height: 1, backgroundColor: '#fff3', width: null}} />
@@ -68,3 +61,16 @@ export default function RegisterScreen() {
     </ImageBackground>
   );
 }
+
+CMEntry = () => {
+  return (
+    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+      <Icon name="user" size={35} color="#0007" />
+      <TextInput
+        placeholder="Username"
+        onChangeText={(text) => setUsername(text)}
+        style={{backgroundColor: '#0003', flex: 1, marginLeft: 5}}
+      />
+    </View>
+  );
+};
