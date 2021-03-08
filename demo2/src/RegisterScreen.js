@@ -33,7 +33,7 @@ export default function RegisterScreen() {
         }}>
         {/* Username */}
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Icon name="user" size={35} color="green" />
+          <Icon name="user" size={35} color="#0007" />
           <TextInput
             placeholder="Username"
             onChangeText={(text) => setUsername(text)}
@@ -46,7 +46,7 @@ export default function RegisterScreen() {
 
         {/* Password */}
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <View style={{height: 35, width: 35, backgroundColor: 'red'}} />
+          <Icon name="lock" size={35} color="#0007" />
           <TextInput
             onChangeText={(text) => setPassword(text)}
             placeholder="Password"
