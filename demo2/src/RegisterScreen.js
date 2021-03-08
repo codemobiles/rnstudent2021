@@ -37,9 +37,7 @@ export default function RegisterScreen() {
         <CMEntry
           icon="user"
           hint="Username"
-          onValueChanged={(text) =>
-            setAccount({username: text, password: account.password})
-          }
+          onValueChanged={(text) => setAccount({...account, username: text})}
         />
 
         {/* Separator */}
@@ -50,9 +48,7 @@ export default function RegisterScreen() {
           icon="lock"
           hint="Password"
           isPassword={true}
-          onValueChanged={(text) =>
-            setAccount({password: text, username: account.username})
-          }
+          onValueChanged={(text) => setAccount({...account, password: text})}
         />
 
         {/* Register Button */}
