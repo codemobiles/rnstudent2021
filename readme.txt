@@ -7,3 +7,5 @@ Original Sourcecode : https://drive.google.com/file/d/1X609NhW-vtvW9Qnz9fVD3LFDp
 - vscode extensions:
   + vscode-icon
   + ES7 React/x
+  + Prettier
+  + 
