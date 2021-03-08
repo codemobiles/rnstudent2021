@@ -14,8 +14,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function RegisterScreen() {
   const [account, setAccount] = React.useState({
-    username:"",
-    password:""
+    username: '',
+    password: '',
   });
 
   return (
@@ -37,7 +37,9 @@ export default function RegisterScreen() {
         <CMEntry
           icon="user"
           hint="Username"
-          onValueChanged={(text) => setUsername(text)}
+          onValueChanged={(text) =>
+            setAccount({username: text, password: account.password})
+          }
         />
 
         {/* Separator */}
@@ -48,12 +50,17 @@ export default function RegisterScreen() {
           icon="lock"
           hint="Password"
           isPassword={true}
-          onValueChanged={(text) => setPassword(text)}
+          onValueChanged={(text) =>
+            setAccount({password: text, username: account.username})
+          }
         />
 
         {/* Register Button */}
         <View style={{height: 10}} />
-        <Button title="Register" onPress={() => alert(username + password)} />
+        <Button
+          title="Register"
+          onPress={() => alert(JSON.stringify(account))}
+        />
 
         {/* Cancel Button */}
         <View style={{height: 10}} />
