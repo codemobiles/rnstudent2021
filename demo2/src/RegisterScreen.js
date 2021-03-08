@@ -13,8 +13,10 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function RegisterScreen() {
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [account, setAccount] = React.useState({
+    username:"",
+    password:""
+  });
 
   return (
     <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
@@ -32,13 +34,22 @@ export default function RegisterScreen() {
           padding: 15,
         }}>
         {/* Username */}
-        <CMEntry icon="user" hint="Username" />
+        <CMEntry
+          icon="user"
+          hint="Username"
+          onValueChanged={(text) => setUsername(text)}
+        />
 
         {/* Separator */}
         <View style={{height: 1, backgroundColor: '#fff3', width: null}} />
 
         {/* Password */}
-        <CMEntry icon="lock" hint="Password" isPassword={true} />
+        <CMEntry
+          icon="lock"
+          hint="Password"
+          isPassword={true}
+          onValueChanged={(text) => setPassword(text)}
+        />
 
         {/* Register Button */}
         <View style={{height: 10}} />
@@ -60,6 +71,7 @@ CMEntry = (props) => {
     <View style={{flexDirection: 'row', alignItems: 'center'}}>
       <Icon name={props.icon} size={35} color="#0007" style={{width: 35}} />
       <TextInput
+        onChangeText={props.onValueChanged}
         secureTextEntry={props.isPassword}
         placeholder={props.hint}
         style={{backgroundColor: '#0003', flex: 1, marginLeft: 5}}
