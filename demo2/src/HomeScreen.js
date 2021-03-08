@@ -11,7 +11,10 @@ import {
 } from 'react-native';
 
 export default function HomeScreen() {
-  let usernamePlaceHolder = 'ชื่อ';
+  //   let usernamePlaceHolder = 'Username';
+  const [usernamePlaceHolder, setUsernamePlaceHolder] = React.useState(
+    'Username',
+  );
 
   return (
     <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
@@ -51,7 +54,7 @@ export default function HomeScreen() {
 
         {/* Login Button */}
         <View style={{height: 10}} />
-        <Button title="Login" />
+        <Button title="Login" onPress={()=>setUsernamePlaceHolder('lek')} />
 
         {/* Register Button */}
         <View style={{height: 10}} />
