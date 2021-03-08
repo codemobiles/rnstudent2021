@@ -18,7 +18,15 @@ export default function HomeScreen() {
         style={{width: '100%'}}
         source={require('./assets/img/header_react_native.png')}
       />
-      <Text>Home</Text>
+      <View
+        style={{
+          height: 100,
+          backgroundColor: '#FFF',
+          marginLeft: 30,
+          marginRight: 30,
+        }}>
+        <TextInput />
+      </View>
     </ImageBackground>
   );
 }
