@@ -1,5 +1,14 @@
 import React from 'react';
-import {View, Text, ImageBackground} from 'react-native';
+import {
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  ImageBackground,
+  Platform,
+  Button,
+} from 'react-native';
 
 export default function HomeScreen() {
   return (
