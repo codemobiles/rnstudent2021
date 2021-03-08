@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 
 export default function HomeScreen() {
+  let usernamePlaceHolder = 'ชื่อ';
+
   return (
     <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
       <Image
@@ -30,7 +32,7 @@ export default function HomeScreen() {
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View style={{height: 35, width: 35, backgroundColor: 'green'}} />
           <TextInput
-            placeholder="Username"
+            placeholder={usernamePlaceHolder}
             style={{backgroundColor: '#0003', flex: 1, marginLeft: 5}}
           />
         </View>
