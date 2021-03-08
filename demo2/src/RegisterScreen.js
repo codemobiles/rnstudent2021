@@ -10,7 +10,7 @@ import {
   Button,
 } from 'react-native';
 
-export default function HomeScreen() {
+export default function RegisterScreen() {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
