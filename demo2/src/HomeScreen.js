@@ -46,6 +46,7 @@ export default function HomeScreen() {
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View style={{height: 35, width: 35, backgroundColor: 'red'}} />
           <TextInput
+            onChangeText={(text) => setPassword(text)}
             placeholder="Password"
             style={{backgroundColor: '#0003', flex: 1, marginLeft: 5}}
           />
@@ -53,7 +54,7 @@ export default function HomeScreen() {
 
         {/* Login Button */}
         <View style={{height: 10}} />
-        <Button title="Login" onPress={() => alert(username)} />
+        <Button title="Login" onPress={() => alert(username + password)} />
 
         {/* Register Button */}
         <View style={{height: 10}} />
