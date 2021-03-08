@@ -10,6 +10,8 @@ import {
   Button,
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 export default function RegisterScreen() {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
@@ -31,7 +33,7 @@ export default function RegisterScreen() {
         }}>
         {/* Username */}
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <View style={{height: 35, width: 35, backgroundColor: 'green'}} />
+          <Icon name="user" size={35} color="green" />
           <TextInput
             placeholder="Username"
             onChangeText={(text) => setUsername(text)}
