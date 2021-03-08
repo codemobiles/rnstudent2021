@@ -13,7 +13,10 @@ import {
 export default function HomeScreen() {
   return (
     <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
-      <Image source={require('./assets/img/header_react_native.png')} />
+      <Image
+        style={{width: '100%'}}
+        source={require('./assets/img/header_react_native.png')}
+      />
       <Text>Home</Text>
     </ImageBackground>
   );
