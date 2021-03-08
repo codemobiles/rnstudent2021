@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ImageBackground} from 'react-native';
 
 export default function HomeScreen() {
   return (
-    <View>
+    <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
       <Text>Home</Text>
-    </View>
+    </ImageBackground>
   );
 }
