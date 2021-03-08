@@ -68,7 +68,6 @@ CMEntry = () => {
       <Icon name="user" size={35} color="#0007" />
       <TextInput
         placeholder="Username"
-        onChangeText={(text) => setUsername(text)}
         style={{backgroundColor: '#0003', flex: 1, marginLeft: 5}}
       />
     </View>
