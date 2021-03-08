@@ -20,7 +20,6 @@ export default function HomeScreen() {
       />
       <View
         style={{
-          height: 100,
           backgroundColor: '#FFF7',
           marginLeft: 30,
           marginRight: 30,
@@ -36,6 +35,9 @@ export default function HomeScreen() {
           />
         </View>
 
+        {/* Separator */}
+        <View style={{height: 1, backgroundColor: '#fff3', width: null}} />
+
         {/* Password */}
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View style={{height: 35, width: 35, backgroundColor: 'red'}} />
@@ -44,6 +46,17 @@ export default function HomeScreen() {
             style={{backgroundColor: '#0003', flex: 1, marginLeft: 5}}
           />
         </View>
+
+        {/* Login Button */}
+        <View style={{height: 10}} />
+        <Button title="Login" />
+
+        {/* Register Button */}
+        <View style={{height: 10}} />
+        <TouchableOpacity
+          style={{justifyContent: 'center', alignItems: 'center'}}>
+          <Text>Register</Text>
+        </TouchableOpacity>
       </View>
     </ImageBackground>
   );
