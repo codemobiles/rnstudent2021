@@ -38,14 +38,7 @@ export default function RegisterScreen() {
         <View style={{height: 1, backgroundColor: '#fff3', width: null}} />
 
         {/* Password */}
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Icon name="lock" size={35} color="#0007" />
-          <TextInput
-            onChangeText={(text) => setPassword(text)}
-            placeholder="Password"
-            style={{backgroundColor: '#0003', flex: 1, marginLeft: 5}}
-          />
-        </View>
+        <CMEntry />
 
         {/* Register Button */}
         <View style={{height: 10}} />
