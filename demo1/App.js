@@ -9,7 +9,7 @@ export default function App() {
         flex: 1,
         alignItems: 'stretch',
         justifyContent: 'space-evenly',
-        flexDirection: 'column',
+        flexDirection: 'row',
       }}>
       <Text
         style={{
