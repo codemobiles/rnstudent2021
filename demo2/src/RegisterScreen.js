@@ -32,13 +32,13 @@ export default function RegisterScreen() {
           padding: 15,
         }}>
         {/* Username */}
-        <CMEntry />
+        <CMEntry icon="user" />
 
         {/* Separator */}
         <View style={{height: 1, backgroundColor: '#fff3', width: null}} />
 
         {/* Password */}
-        <CMEntry />
+        <CMEntry icon="lock" />
 
         {/* Register Button */}
         <View style={{height: 10}} />
@@ -55,10 +55,10 @@ export default function RegisterScreen() {
   );
 }
 
-CMEntry = () => {
+CMEntry = (props) => {
   return (
     <View style={{flexDirection: 'row', alignItems: 'center'}}>
-      <Icon name="user" size={35} color="#0007" />
+      <Icon name={props.icon} size={35} color="#0007" style={{width: 35}} />
       <TextInput
         placeholder="Username"
         style={{backgroundColor: '#0003', flex: 1, marginLeft: 5}}
