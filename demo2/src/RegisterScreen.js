@@ -38,7 +38,7 @@ export default function RegisterScreen() {
         <View style={{height: 1, backgroundColor: '#fff3', width: null}} />
 
         {/* Password */}
-        <CMEntry icon="lock" hint="Password" />
+        <CMEntry icon="lock" hint="Password" isPassword={true} />
 
         {/* Register Button */}
         <View style={{height: 10}} />
@@ -60,6 +60,7 @@ CMEntry = (props) => {
     <View style={{flexDirection: 'row', alignItems: 'center'}}>
       <Icon name={props.icon} size={35} color="#0007" style={{width: 35}} />
       <TextInput
+        secureTextEntry={props.isPassword}
         placeholder={props.hint}
         style={{backgroundColor: '#0003', flex: 1, marginLeft: 5}}
       />
