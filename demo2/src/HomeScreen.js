@@ -11,10 +11,8 @@ import {
 } from 'react-native';
 
 export default function HomeScreen() {
-  //   let usernamePlaceHolder = 'Username';
-  const [usernamePlaceHolder, setUsernamePlaceHolder] = React.useState(
-    'Username',
-  );
+  const [username, setUsername] = React.useState('');
+  const [password, setPassword] = React.useState('');
 
   return (
     <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
@@ -35,7 +33,8 @@ export default function HomeScreen() {
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View style={{height: 35, width: 35, backgroundColor: 'green'}} />
           <TextInput
-            placeholder={usernamePlaceHolder}
+            placeholder="Username"
+            onChangeText={(text) => setUsername(text)}
             style={{backgroundColor: '#0003', flex: 1, marginLeft: 5}}
           />
         </View>
@@ -54,7 +53,7 @@ export default function HomeScreen() {
 
         {/* Login Button */}
         <View style={{height: 10}} />
-        <Button title="Login" onPress={()=>setUsernamePlaceHolder('lek')} />
+        <Button title="Login" onPress={() => alert(username)} />
 
         {/* Register Button */}
         <View style={{height: 10}} />
