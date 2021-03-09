@@ -12,10 +12,20 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function RegisterScreen() {
+export default function RegisterScreen(props) {
   const [account, setAccount] = React.useState({
     username: '',
     password: '',
+  });
+
+  props.navigation.setOptions({
+    title: 'Register',
+    headerStyle: {
+      backgroundColor: '#119CED',
+    },
+    headerTintColor: '#FFFFFF',
+    headerTitleStyle: {color: '#fff'},
+    headerBackTitle: ' ',
   });
 
   return (
