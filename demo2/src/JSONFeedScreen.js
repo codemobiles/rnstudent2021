@@ -12,12 +12,17 @@ import axios from 'axios';
 
 export default function JSONFeedScreen() {
   const [dataArray, setDataArray] = React.useState([]);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   React.useEffect(() => {
     loadData();
   }, []);
 
   loadData = async () => {
+    // show loading
+    setIsLoading(true);
+    setDataArray([]);
+
     // https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=foods
     let url = 'https://codemobiles.com/adhoc/youtubes/index_new.php';
     let regUsername = 'admin'; // await AsyncStorage.getItem('username')
@@ -25,6 +30,9 @@ export default function JSONFeedScreen() {
     let data = `username=${regUsername}&password=${regPassword}&type=foods`;
     const response = await axios.post(url, data);
     setDataArray(response.data.youtubes);
+
+    // hide loading
+    setIsLoading(false);
   };
 
   renderRow = ({item, index}) => {
@@ -60,6 +68,8 @@ export default function JSONFeedScreen() {
       style={styles.container}
       source={require('./assets/img/bg.png')}>
       <FlatList
+        refreshing={isLoading}
+        onRefresh={loadData}
         data={dataArray}
         ListHeaderComponent={renderHeader}
         renderItem={renderRow}
