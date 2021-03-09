@@ -7,9 +7,11 @@ import {
   Image,
   FlatList,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import axios from 'axios';
 import {YouTubeStandaloneAndroid} from 'react-native-youtube';
+import {YouTubeStandaloneIOS} from 'react-native-youtube';
 
 export default function JSONFeedScreen() {
   const [dataArray, setDataArray] = React.useState([]);
@@ -36,21 +38,38 @@ export default function JSONFeedScreen() {
     setIsLoading(false);
   };
 
+  playAndroidYoutube = (videoId) => {
+    // props.navigation.navigate("Youtube", {item})
+    YouTubeStandaloneAndroid.playVideo({
+      apiKey: 'YOUR_API_KEY', // Your YouTube Developer API Key
+      videoId, // YouTube video ID
+      autoplay: true, // Autoplay the video
+      startTime: 0, // Starting point of video (in seconds)
+    })
+      .then(() => console.log('Standalone Player Exited'))
+      .catch((errorMessage) => console.error(errorMessage));
+  };
+
+
+  playiOSYoutube = (videoId) => {
+    // props.navigation.navigate("Youtube", {item})
+    YouTubeStandaloneIOS.playVideo({
+      apiKey: 'YOUR_API_KEY', // Your YouTube Developer API Key
+      videoId, // YouTube video ID
+      autoplay: true, // Autoplay the video
+      startTime: 0, // Starting point of video (in seconds)
+    })
+      .then(() => console.log('Standalone Player Exited'))
+      .catch((errorMessage) => console.error(errorMessage));
+  };
+
   renderRow = ({item, index}) => {
     const {title, subtitle, avatar_image, youtube_image} = item;
     return (
       <TouchableOpacity
         style={styles.listCard}
         onPress={() => {
-          // props.navigation.navigate("Youtube", {item})
-          YouTubeStandaloneAndroid.playVideo({
-            apiKey: 'YOUR_API_KEY', // Your YouTube Developer API Key
-            videoId: item.id, // YouTube video ID
-            autoplay: true, // Autoplay the video
-            startTime: 0, // Starting point of video (in seconds)
-          })
-            .then(() => console.log('Standalone Player Exited'))
-            .catch((errorMessage) => console.error(errorMessage));
+          playAndroidYoutube(item.id);
         }}>
         {/* Top section */}
         <View style={styles.listCardView}>
