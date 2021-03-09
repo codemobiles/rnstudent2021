@@ -10,10 +10,25 @@ import {
   Button,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import AsyncStorage from '@react-native-community/async-storage';
+
 
 export default function HomeScreen(props) {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
+
+  const submit = async () => {
+    let _regUsername = await AsyncStorage.getItem('username');
+    let _regPassword = await AsyncStorage.getItem('password');
+    const {username, password} = account;
+    if (_regUsername == username && _regPassword == password) {
+      await AsyncStorage.setItem('already_logged_in', 'yes');
+
+      props.navigation.dispatch(StackActions.replace('Success'));
+    } else {
+      alert('Authentication failed!');
+    }
+  };
 
   props.navigation.setOptions({
     title: 'Home',

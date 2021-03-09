@@ -29,6 +29,12 @@ export default function RegisterScreen(props) {
     headerBackTitle: ' ',
   });
 
+  onSubmit = async () => {
+    await AsyncStorage.setItem('username', account.username);
+    await AsyncStorage.setItem('password', account.password);
+    props.navigation.goBack();
+  };
+
   return (
     <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
       <Image
@@ -66,7 +72,7 @@ export default function RegisterScreen(props) {
         <View style={{height: 10}} />
         <Button
           title="Register"
-          onPress={() => alert(JSON.stringify(account))}
+          onPress={onSubmit}
         />
 
         {/* Cancel Button */}
