@@ -50,16 +50,9 @@ export default function JSONFeedScreen() {
       .catch((errorMessage) => console.error(errorMessage));
   };
 
-
   playiOSYoutube = (videoId) => {
-    // props.navigation.navigate("Youtube", {item})
-    YouTubeStandaloneIOS.playVideo({
-      apiKey: 'YOUR_API_KEY', // Your YouTube Developer API Key
-      videoId, // YouTube video ID
-      autoplay: true, // Autoplay the video
-      startTime: 0, // Starting point of video (in seconds)
-    })
-      .then(() => console.log('Standalone Player Exited'))
+    YouTubeStandaloneIOS.playVideo(videoId)
+      .then((message) => console.log(message))
       .catch((errorMessage) => console.error(errorMessage));
   };
 
@@ -69,7 +62,9 @@ export default function JSONFeedScreen() {
       <TouchableOpacity
         style={styles.listCard}
         onPress={() => {
-          playAndroidYoutube(item.id);
+          Platform.OS == 'android'
+            ? playAndroidYoutube(item.id)
+            : playiOSYoutube(item.id);
         }}>
         {/* Top section */}
         <View style={styles.listCardView}>
