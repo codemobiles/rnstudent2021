@@ -18,11 +18,17 @@ export default function JSONFeedScreen() {
     setDataArray([1, 2, 3, 4, 5, 6, 7, 8]);
   }, []);
 
+  renderRow = ({item, index}) => <Text>{item}</Text>
+
   return (
     <ImageBackground
-    style={styles.container}
-    source={require('./assets/img/bg.png')}>
-    
+      style={styles.container}
+      source={require('./assets/img/bg.png')}>
+      <FlatList
+        data={dataArray}
+        renderItem={renderRow}
+        keyExtractor={(item)=>{return Math.random().toString()}}
+      />
     </ImageBackground>
   );
 }
