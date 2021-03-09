@@ -42,7 +42,7 @@ Variables (3 types)
 
 
 https://github.com/ivpusic/react-native-image-crop-picker/issues/1406
-
+https://www.youtube.com/watch?v=yWLakd3HRsg
 
 extended display android display manager & react-native
 https://github.com/microsoft/react-native-dualscreen
