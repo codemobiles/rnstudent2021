@@ -11,6 +11,7 @@ import CameraScreen from './CameraScreen';
 import YoutubeScreen from './YoutubeScreen';
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const RootStack = () => {
   return (
@@ -26,6 +27,15 @@ const RootStack = () => {
         options={{title: 'Register'}}
       />
     </Stack.Navigator>
+  );
+};
+
+const SuccessTabs = () => {
+  return (
+    <Tab.Navigator initialRouteName="JSON">
+      <Tab.Screen name="JSON" component={JSONFeedScreen} />
+      <Tab.Screen name="Camera" component={CameraScreen} />
+    </Tab.Navigator>
   );
 };
 

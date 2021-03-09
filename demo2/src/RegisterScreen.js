@@ -71,6 +71,7 @@ export default function RegisterScreen(props) {
         {/* Cancel Button */}
         <View style={{height: 10}} />
         <TouchableOpacity
+          onPress={() => props.navigation.goBack()}
           style={{justifyContent: 'center', alignItems: 'center'}}>
           <Text>Cancel</Text>
         </TouchableOpacity>
