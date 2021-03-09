@@ -303,6 +303,7 @@ PODS:
   - RNVectorIcons (8.1.0):
     - React-Core
   - TOCropViewController (2.6.0)
+  - XCDYouTubeKit (2.15.2)
   - Yoga (1.14.0)
   - YoutubePlayer-in-WKWebView (0.3.5)
 
@@ -345,12 +346,14 @@ DEPENDENCIES:
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
+  - XCDYouTubeKit (~> 2.8)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
     - boost-for-react-native
     - TOCropViewController
+    - XCDYouTubeKit
     - YoutubePlayer-in-WKWebView
 
 EXTERNAL SOURCES:
@@ -468,9 +471,10 @@ SPEC CHECKSUMS:
   RNScreens: f7ad633b2e0190b77b6a7aab7f914fad6f198d8d
   RNVectorIcons: 31cebfcf94e8cf8686eb5303ae0357da64d7a5a4
   TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
+  XCDYouTubeKit: b120aced3d8638ffb570c5450cddb5a1dac448c7
   Yoga: 4bd86afe9883422a7c4028c00e34790f560923d6
   YoutubePlayer-in-WKWebView: cfbf46da51d7370662a695a8f351e5fa1d3e1008
 
-PODFILE CHECKSUM: cea53e8a21699351d53025e74b89684b3bd16273
+PODFILE CHECKSUM: d6b4af8ba80c20823bceede929a73fedbc6467a5
 
 COCOAPODS: 1.9.1
