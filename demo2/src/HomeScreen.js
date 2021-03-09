@@ -25,7 +25,7 @@ export default function HomeScreen(props) {
     headerBackTitle: ' ',
     headerRight: () => (
       <TouchableOpacity
-        activeOpacity={0.7}
+        activeOpacity={0.1}
         onPress={() => alert('www.codemobiles.com')}
         style={{padding: 10}}>
         <Icon
@@ -38,6 +38,7 @@ export default function HomeScreen(props) {
           }}
         />
       </TouchableOpacity>
+    ),
   });
 
   return (
