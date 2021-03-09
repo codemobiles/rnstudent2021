@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, StyleSheet} from 'react-native';
 
 export default function JSONFeedScreen() {
   const [dataArray, setDataArray] = React.useState([]);
@@ -10,10 +10,10 @@ export default function JSONFeedScreen() {
   }, []);
 
   return (
-    <View style={{flex: 1}}>
+    <View style={styles.container}>
       <FlatList
         data={dataArray}
-        renderItem={({item, index}) => <Text>{item}</Text>}
+        renderItem={({item, index}) => <Text style={styles.body}>{item}</Text>}
         keyExtractor={(item) => {
           return item.toString();
         }}
@@ -21,3 +21,13 @@ export default function JSONFeedScreen() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'red',
+  },
+  body: {
+    color: 'white',
+  },
+});
