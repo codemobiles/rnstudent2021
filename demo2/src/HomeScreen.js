@@ -81,7 +81,10 @@ export default function HomeScreen(props) {
 
         {/* Login Button */}
         <View style={{height: 10}} />
-        <Button title="Login" onPress={() => alert(username + password)} />
+        <Button
+          title="Login"
+          onPress={() => props.navigation.navigate('Success')}
+        />
 
         {/* Register Button */}
         <View style={{height: 10}} />
