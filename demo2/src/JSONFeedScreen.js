@@ -38,7 +38,9 @@ export default function JSONFeedScreen() {
   renderRow = ({item, index}) => {
     const {title, subtitle, avatar_image, youtube_image} = item;
     return (
-      <TouchableOpacity style={styles.listCard}>
+      <TouchableOpacity
+        style={styles.listCard}
+        onPress={() => alert(JSON.stringify(item))}>
         {/* Top section */}
         <View style={styles.listCardView}>
           {/* Avatar */}
@@ -73,9 +75,7 @@ export default function JSONFeedScreen() {
         data={dataArray}
         ListHeaderComponent={renderHeader}
         renderItem={renderRow}
-        keyExtractor={(item) => {
-          return Math.random().toString();
-        }}
+        keyExtractor={(item) => item.id}
       />
     </ImageBackground>
   );
