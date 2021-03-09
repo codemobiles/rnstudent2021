@@ -15,6 +15,42 @@ import ImagePicker from 'react-native-image-crop-picker';
 import axios from 'axios';
 
 export default function CameraScreen() {
+  // stub function
+  openCamera = (cropIt) => {
+
+    let image = await ImagePicker.openCamera({
+      cropping: cropIt,
+      width: 500, // width after cropped
+      height: 500, // height after cropped
+      includeExif: true,
+    });
+
+    setImage({uri: image.path, width: image.width, height: image.height});
+
+  };
+  openPhotoGallery = (cropIt) => {
+    let image = await ImagePicker.openPicker({
+      // width: 300, // width after cropped
+      // height: 300, // height after cropped
+      cropping: cropIt,
+      compressImageMaxWidth: 640, // max width compress if not croppred
+      compressImageMaxHeight: 480, // max height compress if not croppred
+      compressImageQuality: 0.5,
+      compressVideoPreset: 'MediumQuality',
+      includeExif: true,
+    });
+
+    setImage({
+      uri: image.path,
+      width: image.width,
+      height: image.height,
+      mime: image.mime,
+    });
+
+  };
+
+  const [image, setImage] = useState(null)
+
   return (
     <ImageBackground
       source={require('./assets/img/bg.png')}
