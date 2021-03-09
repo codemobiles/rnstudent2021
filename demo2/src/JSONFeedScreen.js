@@ -18,6 +18,16 @@ export default function JSONFeedScreen() {
     setDataArray([1, 2, 3, 4, 5, 6, 7, 8]);
   }, []);
 
+
+  loadData = async ()=>{
+    let url = 'https://codemobiles.com/adhoc/youtubes/index_new.php';
+    let regUsername = 'admin'; // await AsyncStorage.getItem('username')
+    let regPassword = 'password'; // await AsyncStorage.getItem('password')
+    let data = `username=${regUsername}&password=${regPassword}&type=foods`;
+    
+    const result = await axios.
+  }
+
   renderRow = ({item, index}) => <Text>{item}</Text>
 
   return (
