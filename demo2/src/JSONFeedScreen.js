@@ -27,7 +27,11 @@ export default function JSONFeedScreen() {
     setDataArray(response.data.youtubes);
   };
 
-  renderRow = ({item, index}) => <Text>{item.title}</Text>;
+  renderRow = ({item, index}) => {
+    const {title, subtitle, avatar_image, youtube_image} = item
+    
+    return <Text>{item}</Text>;
+  };
 
   return (
     <ImageBackground
