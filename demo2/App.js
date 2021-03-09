@@ -7,11 +7,11 @@ import {NavigationContainer} from '@react-navigation/native';
 export default function App() {
   return (
     <NavigationContainer>
-    <View style={{flex: 1}}>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView />
-      <AppNavigator/>
-    </View>
-  </NavigationContainer>
-  )
+      <View style={{flex: 1}}>
+        <StatusBar barStyle="dark-content" />
+        <SafeAreaView />
+        <AppNavigator />
+      </View>
+    </NavigationContainer>
+  );
 }
