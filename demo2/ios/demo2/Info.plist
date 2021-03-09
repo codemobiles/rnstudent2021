@@ -6,6 +6,10 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>demo2</string>
+	
+	<key>NSCameraUsageDescription</key>
+    <string>YOUR TEXT</string>
+
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

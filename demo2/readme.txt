@@ -49,3 +49,8 @@ https://github.com/microsoft/react-native-dualscreen
 
 
 yarn add express formidable fs-extra body-parser
+
+#info.plist
+
+<key>NSCameraUsageDescription</key>
+<string>YOUR TEXT</string>
