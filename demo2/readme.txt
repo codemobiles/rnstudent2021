@@ -41,6 +41,9 @@ Variables (3 types)
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
 
+https://github.com/ivpusic/react-native-image-crop-picker/issues/1406
+
+
 extended display android display manager & react-native
 https://github.com/microsoft/react-native-dualscreen
 
