@@ -18,17 +18,17 @@ export default function JSONFeedScreen() {
     setDataArray([1, 2, 3, 4, 5, 6, 7, 8]);
   }, []);
 
-
-  loadData = async ()=>{
+  loadData = async () => {
+    // https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=foods
     let url = 'https://codemobiles.com/adhoc/youtubes/index_new.php';
     let regUsername = 'admin'; // await AsyncStorage.getItem('username')
     let regPassword = 'password'; // await AsyncStorage.getItem('password')
     let data = `username=${regUsername}&password=${regPassword}&type=foods`;
-    
-    const result = await axios.
-  }
+    const response = await axios.post(url, data);
+    response.data;
+  };
 
-  renderRow = ({item, index}) => <Text>{item}</Text>
+  renderRow = ({item, index}) => <Text>{item}</Text>;
 
   return (
     <ImageBackground
@@ -37,7 +37,9 @@ export default function JSONFeedScreen() {
       <FlatList
         data={dataArray}
         renderItem={renderRow}
-        keyExtractor={(item)=>{return Math.random().toString()}}
+        keyExtractor={(item) => {
+          return Math.random().toString();
+        }}
       />
     </ImageBackground>
   );
