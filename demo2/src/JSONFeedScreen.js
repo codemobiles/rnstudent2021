@@ -19,15 +19,11 @@ export default function JSONFeedScreen() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={dataArray}
-        renderItem={({item, index}) => <Text style={styles.body}>{item}</Text>}
-        keyExtractor={(item) => {
-          return item.toString();
-        }}
-      />
-    </View>
+    <ImageBackground
+    style={styles.container}
+    source={require('./assets/img/bg.png')}>
+    
+    </ImageBackground>
   );
 }
 
