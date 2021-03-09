@@ -14,8 +14,7 @@ export default function JSONFeedScreen() {
   const [dataArray, setDataArray] = React.useState([]);
 
   React.useEffect(() => {
-    console.log('Hey');
-    setDataArray([1, 2, 3, 4, 5, 6, 7, 8]);
+    loadData();
   }, []);
 
   loadData = async () => {
@@ -25,10 +24,10 @@ export default function JSONFeedScreen() {
     let regPassword = 'password'; // await AsyncStorage.getItem('password')
     let data = `username=${regUsername}&password=${regPassword}&type=foods`;
     const response = await axios.post(url, data);
-    response.data;
+    setDataArray(response.data.youtubes);
   };
 
-  renderRow = ({item, index}) => <Text>{item}</Text>;
+  renderRow = ({item, index}) => <Text>{item.title}</Text>;
 
   return (
     <ImageBackground
