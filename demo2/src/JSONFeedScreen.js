@@ -28,9 +28,23 @@ export default function JSONFeedScreen() {
   };
 
   renderRow = ({item, index}) => {
-    const {title, subtitle, avatar_image, youtube_image} = item
-    
-    return <Text>{item}</Text>;
+    const {title, subtitle, avatar_image, youtube_image} = item;
+    return (
+      <TouchableOpacity style={styles.listCard}>
+        {/* Top section */}
+        <View style={styles.listCardView}>
+          {/* Avatar */}
+          <Image style={styles.listAvatar} source={{uri: avatar_image}} />
+          {/* Title and Subtitle */}
+          <View style={styles.listTitleSubtitleContainer}>
+            <Text style={styles.listTitle}>{title}</Text>
+            <Text style={styles.listSubTitle}>{subtitle}</Text>
+          </View>
+        </View>
+        {/* Bottom section */}
+        <Image style={styles.listYoutbeImage} source={{uri: youtube_image}} />
+      </TouchableOpacity>
+    );
   };
 
   return (
