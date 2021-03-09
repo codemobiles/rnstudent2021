@@ -54,3 +54,5 @@ yarn add express formidable fs-extra body-parser
 
 <key>NSCameraUsageDescription</key>
 <string>YOUR TEXT</string>
+
+pod 'XCDYouTubeKit', '~> 2.8'

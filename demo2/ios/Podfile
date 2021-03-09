@@ -28,6 +28,9 @@ target 'demo2' do
 
   pod 'RNImageCropPicker', :path => '../node_modules/react-native-image-crop-picker'
 
+  pod 'XCDYouTubeKit', '~> 2.8'
+
+
   permissions_path = '../node_modules/react-native-permissions/ios'
 
   pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
