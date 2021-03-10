@@ -6,18 +6,46 @@ import {
   Image,
   ImageBackground,
   Text,
-  View,
   TouchableOpacity,
 } from 'react-native';
 import {ifIphoneX} from 'react-native-iphone-x-helper';
 
-export default function TabScanner() {
+const TabScanner = (props) => {
   return (
-    <View>
-      <Text>TabScanner</Text>
-    </View>
+    <ImageBackground
+      source={require('./img/gradient_bg.png')}
+      resizeMode={'stretch'}
+      style={styles.container}>
+      <Image
+        resizeMode={'contain'}
+        style={{
+          width: '100%',
+          height: 120,
+          marginTop: 10,
+          padding: 0,
+          ...ifIphoneX({marginTop: 30}, {marginTop: 0}),
+        }}
+        source={require('./img/header_react_native.png')}
+      />
+      <TouchableOpacity
+        style={{
+          flex: 1,
+          marginBottom: 16,
+          alignSelf: 'center',
+          justifyContent: 'center',
+        }}
+        onPress={() => onClickScan(props)}>
+        <Image
+          source={require('./img/scan_button.png')}
+          style={{width: 100, height: 100}}
+        />
+      </TouchableOpacity>
+    </ImageBackground>
   );
-}
+};
+
+
+export default TabScanner;
 
 const styles = StyleSheet.create({
   container: {
