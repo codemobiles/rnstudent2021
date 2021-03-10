@@ -48,9 +48,16 @@ export default function TabQRcode() {
         }}
         onChangeText={(text) => setQrValue(text)}
       />
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-        <QRCode key={item.toString()} value="http://awesome.link.qr" />
-      ))}
+      <ScrollView
+        contentContainerStyle={{
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}>
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
+          
+          <QRCode key={item.toString()} value="http://awesome.link.qr" />
+        ))}
+      </ScrollView>
     </ImageBackground>
   );
 }
