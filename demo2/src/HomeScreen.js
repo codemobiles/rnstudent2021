@@ -16,6 +16,11 @@ export default function HomeScreen(props) {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
+
+  React.useEffect(() => {
+    
+  }, [])
+
   const submit = async () => {
     let _regUsername = await AsyncStorage.getItem('username');
     let _regPassword = await AsyncStorage.getItem('password');
@@ -28,6 +33,8 @@ export default function HomeScreen(props) {
     }
   };
 
+  setNavigationOption = () => {
+     
   props.navigation.setOptions({
     title: 'Home',
     headerStyle: {
@@ -53,6 +60,8 @@ export default function HomeScreen(props) {
       </TouchableOpacity>
     ),
   });
+  }
+ 
 
   return (
     <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
