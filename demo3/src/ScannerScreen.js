@@ -7,7 +7,11 @@ export default function ScannerScreen(props) {
   const scannerRef = useRef(null);
   const [isReady, setIsReady] = useState(false);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsReady(true);
+    }, 2000);
+  }, []);
 
   const showScanner = () => {
     return (
@@ -47,8 +51,11 @@ export default function ScannerScreen(props) {
     props.navigation.goBack();
   };
 
+  // Ternery Condition
   return (
-    <View style={{flex: 1, backgroundColor: 'black'}}>{showScanner()}</View>
+    <View style={{flex: 1, backgroundColor: 'black'}}>
+      {isReady ? showScanner() : showLoading()}
+    </View>
   );
 }
 
