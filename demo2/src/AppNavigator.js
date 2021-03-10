@@ -13,9 +13,9 @@ import YoutubeScreen from './YoutubeScreen';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const RootStack = () => {
+const RootStack = (props) => {
   return (
-    <Stack.Navigator initialRouteName="Home">
+    <Stack.Navigator initialRouteName={props.forceLogin ? 'Home' : 'Success'}>
       <Stack.Screen
         name="Home"
         component={HomeScreen}
