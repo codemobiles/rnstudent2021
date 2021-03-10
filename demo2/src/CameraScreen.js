@@ -10,7 +10,7 @@ import {
   Alert,
   Button,
 } from 'react-native';
-
+import {PreviewImage} from './Util/PreviewImage';
 import ImagePicker from 'react-native-image-crop-picker';
 import axios from 'axios';
 
@@ -92,8 +92,6 @@ export default function CameraScreen() {
     </ImageBackground>
   );
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
