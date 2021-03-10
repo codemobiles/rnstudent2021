@@ -26,7 +26,7 @@ export default function HomeScreen(props) {
     if (isAuthorized && isAuthorized == 'yes') {
       let _regUsername = await AsyncStorage.getItem('username');
       let _regPassword = await AsyncStorage.getItem('password');
-
+      console.log('Hey Authen' + _regUsername);
       setUsername(_regUsername);
       setPassword(_regPassword);
     }
@@ -91,6 +91,7 @@ export default function HomeScreen(props) {
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View style={{height: 35, width: 35, backgroundColor: 'green'}} />
           <TextInput
+            value={username}
             placeholder="Username"
             onChangeText={(text) => setUsername(text)}
             style={{backgroundColor: '#0003', flex: 1, marginLeft: 5}}
@@ -104,6 +105,7 @@ export default function HomeScreen(props) {
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View style={{height: 35, width: 35, backgroundColor: 'red'}} />
           <TextInput
+            value={password}
             onChangeText={(text) => setPassword(text)}
             placeholder="Password"
             style={{backgroundColor: '#0003', flex: 1, marginLeft: 5}}
