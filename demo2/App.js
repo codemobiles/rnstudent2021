@@ -15,7 +15,7 @@ export default function App() {
 
   const checkAuthorization = async () => {
     let isAuthorized = await AsyncStorage.getItem('already_logged_in');
-    if (isAuthorized && isAuthorized == 'yes') {
+    if (isAuthorized && isAuthorized == 'yes_hey') {
       setForceLogin(false);
     }
 
