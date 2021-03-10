@@ -44,6 +44,9 @@ const TabScanner = (props) => {
   );
 };
 
+function onClickScan(props) {
+  props.navigation.navigate('scan');
+}
 
 export default TabScanner;
 
