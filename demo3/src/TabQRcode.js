@@ -14,6 +14,8 @@ import QRCode from 'react-native-qrcode-svg';
 const PATH_TO_LOGO = './img/cmdev_icon.png';
 
 export default function TabQRcode() {
+  const [qrValue, setQrValue] = useState('');
+
   return (
     <ImageBackground
       source={require('./img/gradient_bg.png')}
@@ -28,6 +30,23 @@ export default function TabQRcode() {
           padding: 0,
         }}
         source={require('./img/header_react_native.png')}
+      />
+
+      <TextInput
+        placeholder="QRCode Value"
+        style={{
+          fontSize: 18,
+          height: 40,
+          textAlign: 'center',
+          borderWidth: 1,
+          borderColor: '#fff3',
+          borderRadius: 5,
+          marginLeft: 32,
+          marginRight: 32,
+          marginBottom: 32,
+          marginTop: 32,
+        }}
+        onChangeText={(text) => setQrValue(text)}
       />
     </ImageBackground>
   );
