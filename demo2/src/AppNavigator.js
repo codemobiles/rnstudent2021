@@ -15,7 +15,7 @@ const Tab = createBottomTabNavigator();
 
 const RootStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Success">
+    <Stack.Navigator initialRouteName="Home">
       <Stack.Screen
         name="Home"
         component={HomeScreen}

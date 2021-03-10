@@ -58,7 +58,7 @@ export default function CameraScreen() {
       name: 'testPhotoName.jpg',
     });
 
-    let result = await axios.post('http://192.168.30.12:3000/uploads', data);
+    let result = await axios.post('http://192.168.0.173:3000/uploads', data);
     console.log(JSON.stringify(result.data));
     Alert.alert(JSON.stringify(result.data));
   };
