@@ -57,7 +57,11 @@ const TabScreens = () => {
 const RootStack = () => {
   return (
     <Stack.Navigator initialRouteName="">
-      <Stack.Screen name="tab" component={TabScreens} />
+      <Stack.Screen
+        name="tab"
+        component={TabScreens}
+        options={{headerShown: false}}
+      />
       <Stack.Screen name="scan" component={ScannerScreen} />
     </Stack.Navigator>
   );
