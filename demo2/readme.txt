@@ -56,3 +56,6 @@ yarn add express formidable fs-extra body-parser
 <string>YOUR TEXT</string>
 
 pod 'XCDYouTubeKit', '~> 2.8'
+
+
+npx nodemon server.js
