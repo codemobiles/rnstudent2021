@@ -53,9 +53,18 @@ export default function TabQRcode() {
           flexDirection: 'column',
           alignItems: 'center',
         }}>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
+        {[1, 2, 3].map((item) => (
           <CMQRCode
             color="red"
+            key={item.toString()}
+            value={qrValue}
+            logo={require(PATH_TO_LOGO)}
+          />
+        ))}
+
+        {[1, 2, 3].map((item) => (
+          <MyQRCodeClass
+            color="green"
             key={item.toString()}
             value={qrValue}
             logo={require(PATH_TO_LOGO)}
@@ -75,6 +84,25 @@ const CMQRCode = (props) => {
     </View>
   );
 };
+
+class MyQRCodeClass extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    const {value} = this.props;
+    return (
+      <View style={{margin: 8}}>
+        <QRCode
+          {...this.props}
+          value={value != '' ? value : 'www.codemobiles.com'}
+        />
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
