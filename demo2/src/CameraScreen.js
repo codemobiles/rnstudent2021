@@ -16,8 +16,7 @@ import axios from 'axios';
 
 export default function CameraScreen() {
   // stub function
-  openCamera = (cropIt) => {
-
+  openCamera = async (cropIt) => {
     let image = await ImagePicker.openCamera({
       cropping: cropIt,
       width: 500, // width after cropped
@@ -26,9 +25,8 @@ export default function CameraScreen() {
     });
 
     setImage({uri: image.path, width: image.width, height: image.height});
-
   };
-  openPhotoGallery = (cropIt) => {
+  openPhotoGallery = async (cropIt) => {
     let image = await ImagePicker.openPicker({
       // width: 300, // width after cropped
       // height: 300, // height after cropped
@@ -46,10 +44,9 @@ export default function CameraScreen() {
       height: image.height,
       mime: image.mime,
     });
-
   };
 
-  const [image, setImage] = useState(null)
+  const [image, setImage] = useState(null);
 
   return (
     <ImageBackground
