@@ -15,12 +15,23 @@ const PATH_TO_LOGO = './img/cmdev_icon.png';
 
 export default function TabQRcode() {
   return (
-    <View>
-      <Text>TabQRcode</Text>
-    </View>
-  )
+    <ImageBackground
+      source={require('./img/gradient_bg.png')}
+      resizeMode={'stretch'}
+      style={styles.container}>
+      <Image
+        resizeMode={'contain'}
+        style={{
+          width: '100%',
+          height: 120,
+          ...ifIphoneX({marginTop: 30}, {marginTop: 0}),
+          padding: 0,
+        }}
+        source={require('./img/header_react_native.png')}
+      />
+    </ImageBackground>
+  );
 }
-
 
 const styles = StyleSheet.create({
   container: {
