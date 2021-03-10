@@ -1,15 +1,56 @@
 import React, {useState, useEffect, useRef} from 'react';
+
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+
 import QRCodeScanner from 'react-native-qrcode-scanner';
+export default function ScannerScreen(props) {
+  const scannerRef = useRef(null);
+  const [isReady, setIsReady] = useState(false);
 
-export default function ScannerScreen() {
+  useEffect(() => {}, []);
+
+  const showScanner = () => {
+    return (
+      <QRCodeScanner
+        ref={scannerRef}
+        showMarker
+        onRead={(e) => onSuccess(e.data)}
+        style={{flex: 1}}
+        bottomContent={
+          <TouchableOpacity
+            onPress={() => scannerRef.current.reactivate()}
+            style={styles.buttonTouchable}>
+            <Text style={styles.buttonText}>SCAN</Text>
+          </TouchableOpacity>
+        }
+      />
+    );
+  };
+
+  const showLoading = () => {
+    return (
+      <Text
+        style={{
+          flex: 1,
+          textAlign: 'center',
+          textAlignVertical: 'center',
+          color: 'white',
+        }}>
+        Loading...
+      </Text>
+    );
+  };
+
+  const onSuccess = (result) => {
+    const {onResult} = props.route.params;
+    onResult(result);
+    props.navigation.goBack();
+  };
+
   return (
-    <View>
-      <Text>ScannerScreen</Text>
-    </View>
-  )
+    <View style={{flex: 1, backgroundColor: 'black'}}>{showScanner()}</View>
+  );
 }
-
 
 const styles = StyleSheet.create({
   container: {
