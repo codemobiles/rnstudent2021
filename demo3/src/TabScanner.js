@@ -6,19 +6,18 @@ import {
   Image,
   ImageBackground,
   Text,
+  View,
   TouchableOpacity,
 } from 'react-native';
 import {ifIphoneX} from 'react-native-iphone-x-helper';
-
 
 export default function TabScanner() {
   return (
     <View>
       <Text>TabScanner</Text>
     </View>
-  )
+  );
 }
-
 
 const styles = StyleSheet.create({
   container: {

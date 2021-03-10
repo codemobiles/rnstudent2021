@@ -18,4 +18,13 @@ const TabScreens = () => {
   );
 };
 
-export default TabScreens;
+const RootStack = ()=>{
+  return (
+    <Stack.Navigator initialRouteName="tab">
+      <Stack.Screen name="tab" component={TabScreens}/>
+      <Stack.Screen name="scan" component={ScannerScreen}/>
+    </Stack.Navigator>
+  )
+}
+
+export default RootStack;
