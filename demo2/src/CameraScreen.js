@@ -15,6 +15,8 @@ import ImagePicker from 'react-native-image-crop-picker';
 import axios from 'axios';
 
 export default function CameraScreen() {
+  const [image, setImage] = useState(null);
+
   // stub function
   openCamera = async (cropIt) => {
     let image = await ImagePicker.openCamera({
@@ -45,8 +47,6 @@ export default function CameraScreen() {
       mime: image.mime,
     });
   };
-
-  const [image, setImage] = useState(null);
 
   return (
     <ImageBackground
@@ -86,9 +86,14 @@ export default function CameraScreen() {
           <Text style={styles.text}>GALLERY</Text>
         </TouchableOpacity>
       </View>
+
+      <PreviewImage image={image} />
+      {image && <Image source={image} style={{flex: 1}} />}
     </ImageBackground>
   );
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
