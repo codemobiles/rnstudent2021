@@ -19,15 +19,21 @@ export default function RegisterScreen(props) {
     password: '',
   });
 
-  props.navigation.setOptions({
-    title: 'Register',
-    headerStyle: {
-      backgroundColor: '#119CED',
-    },
-    headerTintColor: '#FFFFFF',
-    headerTitleStyle: {color: '#fff'},
-    headerBackTitle: ' ',
-  });
+  React.useEffect(() => {
+    setNavigationOption();
+  }, []);
+
+  setNavigationOption = () => {
+    props.navigation.setOptions({
+      title: 'Register',
+      headerStyle: {
+        backgroundColor: '#119CED',
+      },
+      headerTintColor: '#FFFFFF',
+      headerTitleStyle: {color: '#fff'},
+      headerBackTitle: ' ',
+    });
+  };
 
   onSubmit = async () => {
     await AsyncStorage.setItem('username', account.username);
@@ -70,10 +76,7 @@ export default function RegisterScreen(props) {
 
         {/* Register Button */}
         <View style={{height: 10}} />
-        <Button
-          title="Register"
-          onPress={onSubmit}
-        />
+        <Button title="Register" onPress={onSubmit} />
 
         {/* Cancel Button */}
         <View style={{height: 10}} />

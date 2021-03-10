@@ -16,10 +16,9 @@ export default function HomeScreen(props) {
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-
   React.useEffect(() => {
-    
-  }, [])
+    setNavigationOption();
+  }, []);
 
   const submit = async () => {
     let _regUsername = await AsyncStorage.getItem('username');
@@ -34,34 +33,32 @@ export default function HomeScreen(props) {
   };
 
   setNavigationOption = () => {
-     
-  props.navigation.setOptions({
-    title: 'Home',
-    headerStyle: {
-      backgroundColor: '#119CED',
-    },
-    headerTintColor: '#FFFFFF',
-    headerTitleStyle: {color: '#fff'},
-    headerBackTitle: ' ',
-    headerRight: () => (
-      <TouchableOpacity
-        activeOpacity={0.3}
-        onPress={() => alert('www.codemobiles.com')}
-        style={{padding: 10}}>
-        <Icon
-          name="address-card"
-          size={20}
-          color="#fff"
-          style={{
-            height: 24,
-            width: 24,
-          }}
-        />
-      </TouchableOpacity>
-    ),
-  });
-  }
- 
+    props.navigation.setOptions({
+      title: 'Home',
+      headerStyle: {
+        backgroundColor: '#119CED',
+      },
+      headerTintColor: '#FFFFFF',
+      headerTitleStyle: {color: '#fff'},
+      headerBackTitle: ' ',
+      headerRight: () => (
+        <TouchableOpacity
+          activeOpacity={0.3}
+          onPress={() => alert('www.codemobiles.com')}
+          style={{padding: 10}}>
+          <Icon
+            name="address-card"
+            size={20}
+            color="#fff"
+            style={{
+              height: 24,
+              width: 24,
+            }}
+          />
+        </TouchableOpacity>
+      ),
+    });
+  };
 
   return (
     <ImageBackground source={require('./assets/img/bg.png')} style={{flex: 1}}>
