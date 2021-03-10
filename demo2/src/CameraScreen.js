@@ -89,11 +89,13 @@ export default function CameraScreen() {
 
       <PreviewImage image={image} />
 
-      <TouchableOpacity
-        onPress={() => uploadWithAxios(image)}
-        style={styles.upload_button}>
-        <Text style={styles.text}>UPLOAD</Text>
-      </TouchableOpacity>
+      {image && (
+        <TouchableOpacity
+          onPress={() => uploadWithAxios(image)}
+          style={styles.upload_button}>
+          <Text style={styles.text}>UPLOAD</Text>
+        </TouchableOpacity>
+      )}
     </ImageBackground>
   );
 }
