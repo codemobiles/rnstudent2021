@@ -54,12 +54,22 @@ export default function TabQRcode() {
           alignItems: 'center',
         }}>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-          <QRCode key={item.toString()} value="http://awesome.link.qr" />
+          <CMQRCode />
         ))}
       </ScrollView>
     </ImageBackground>
   );
 }
+
+const CMQRCode = (props) => {
+  const {value} = props;
+
+  return (
+    <View style={{margin: 8}}>
+      <QRCode value={value != '' ? value : 'www.codemobiles.com'} />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
