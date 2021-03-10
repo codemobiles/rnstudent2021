@@ -12,5 +12,7 @@ export const PreviewImage = ({image}) => {
         />
       </View>
     );
+  } else {
+    return null;
   }
 };
