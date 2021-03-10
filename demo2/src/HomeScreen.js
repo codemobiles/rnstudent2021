@@ -18,7 +18,19 @@ export default function HomeScreen(props) {
 
   React.useEffect(() => {
     setNavigationOption();
+    checkAuthorization();
   }, []);
+
+  const checkAuthorization = async () => {
+    let isAuthorized = await AsyncStorage.getItem('already_logged_in');
+    if (isAuthorized && isAuthorized == 'yes') {
+      let _regUsername = await AsyncStorage.getItem('username');
+      let _regPassword = await AsyncStorage.getItem('password');
+
+      setUsername(_regUsername);
+      setPassword(_regPassword);
+    }
+  };
 
   const submit = async () => {
     let _regUsername = await AsyncStorage.getItem('username');
