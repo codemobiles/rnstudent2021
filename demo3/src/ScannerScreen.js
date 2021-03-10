@@ -31,7 +31,7 @@ export default function ScannerScreen(props) {
     );
   };
 
-  const showLoading = () => {
+  const showLoading = (props) => {
     return (
       <Text
         style={{
@@ -40,7 +40,7 @@ export default function ScannerScreen(props) {
           textAlignVertical: 'center',
           color: 'white',
         }}>
-        Loading...
+        {props.route.params.title}
       </Text>
     );
   };
@@ -54,7 +54,7 @@ export default function ScannerScreen(props) {
   // Ternery Condition
   return (
     <View style={{flex: 1, backgroundColor: 'black'}}>
-      {isReady ? showScanner() : showLoading()}
+      {isReady ? showScanner() : showLoading(props)}
     </View>
   );
 }
