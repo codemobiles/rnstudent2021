@@ -48,6 +48,22 @@ export default function CameraScreen() {
     });
   };
 
+  const uploadWithAxios = async () => {
+    const data = new FormData();
+    data.append('username', 'codemobiles'); // you can append anyone.
+    data.append('password', '1234'); // you can append anyone.
+    data.append('userfile', {
+      uri: image.uri,
+      type: 'image/jpeg', // or photo.type
+      name: 'testPhotoName.jpg',
+    });
+
+    let result = await axios.post('http://192.168.30.12:3000/uploads', data);
+    console.log(JSON.stringify(result.data));
+    Alert.alert(JSON.stringify(result.data));
+  };
+
+
   return (
     <ImageBackground
       source={require('./assets/img/bg.png')}
