@@ -1,15 +1,17 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from 'react';
+import {View, SafeAreaView, StatusBar, LogBox} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import AppNavigator from './src/AppNavigator';
 
 export default function App() {
   return (
-    <View>
-      <Text>x</Text>
-    </View>
-  )
+    <NavigationContainer>
+      <View style={{flex: 1}}>
+         <AppNavigator />
+      </View>
+    </NavigationContainer>
+  );
 }
-
-
 
 // import React from 'react';
 // import {View, SafeAreaView, StatusBar, LogBox} from 'react-native';
