@@ -13,6 +13,14 @@ export const PreviewImage = ({image}) => {
       </View>
     );
   } else {
-    return null;
+    return (
+      <View style={{padding: 10, flex: 1}}>
+        <Image
+          source={image}
+          style={{flex: 1, width: '100%'}}
+          resizeMode="contain"
+        />
+      </View>
+    );
   }
 };
