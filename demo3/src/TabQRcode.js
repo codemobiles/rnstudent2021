@@ -54,7 +54,12 @@ export default function TabQRcode() {
           alignItems: 'center',
         }}>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-          <CMQRCode key={item.toString()} value={qrValue} />
+          <CMQRCode
+            color="red"
+            key={item.toString()}
+            value={qrValue}
+            logo={require(PATH_TO_LOGO)}
+          />
         ))}
       </ScrollView>
     </ImageBackground>
@@ -66,7 +71,7 @@ const CMQRCode = (props) => {
 
   return (
     <View style={{margin: 8}}>
-      <QRCode value={value != '' ? value : 'www.codemobiles.com'} />
+      <QRCode {...props} value={value != '' ? value : 'www.codemobiles.com'} />
     </View>
   );
 };
