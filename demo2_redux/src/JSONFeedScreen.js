@@ -13,12 +13,21 @@ import axios from 'axios';
 import {YouTubeStandaloneAndroid} from 'react-native-youtube';
 import {YouTubeStandaloneIOS} from 'react-native-youtube';
 
+import {useSelector, useDispatch} from 'react-redux';
+import * as jsonActions from './actions/jsonscreen.action';
+
 export default function JSONFeedScreen() {
   const [dataArray, setDataArray] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
 
+  const jsonReducer = useSelector(({jsonReducer}) => jsonReducer);
+
   React.useEffect(() => {
     loadData();
+
+    setTimeout(() => {
+      alert(JSON.stringify(jsonReducer.dataArray));
+    }, 2000);
   }, []);
 
   loadData = async () => {
