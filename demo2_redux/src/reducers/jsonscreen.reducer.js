@@ -1,7 +1,7 @@
 import {JSON_FAILED, JSON_FETCHING, JSON_SUCCESS} from '../Constants';
 
 const initialState = {
-  dataArray: [1, 2, 3, 5],
+  dataArray: [],
   isRefreshing: false,
   isFailed: false,
 };

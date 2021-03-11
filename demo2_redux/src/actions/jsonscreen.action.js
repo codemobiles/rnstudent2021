@@ -17,24 +17,23 @@ export const setJSONToFailed = (payload) => ({
 
 // Used by UI
 export const loadData = () => {
-  return (dispatch = () => {
-    setJSONToFetching();
-
-    // simulate loading data
-    setTimeout(() => {
-      setJSONToSuccess([1, 2, 3, 4]);
-    }, 3000);
+  return (dispatch = async () => {
+    try {
+      setJSONToFetching();
+      const result = await doLoadData();
+      setJSONToSuccess(result);
+    } catch (e) {
+      setJSONToFailed([]);
+    }
   });
 };
 
-
 const doLoadData = async () => {
-   
-    // https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=foods
-    let url = 'https://codemobiles.com/adhoc/youtubes/index_new.php';
-    let regUsername = 'admin'; // await AsyncStorage.getItem('username')
-    let regPassword = 'password'; // await AsyncStorage.getItem('password')
-    let data = `username=${regUsername}&password=${regPassword}&type=foods`;
-    const response = await axios.post(url, data);
-    return response.data.youtubes
-  };
+  // https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=foods
+  let url = 'https://codemobiles.com/adhoc/youtubes/index_new.php';
+  let regUsername = 'admin'; // await AsyncStorage.getItem('username')
+  let regPassword = 'password'; // await AsyncStorage.getItem('password')
+  let data = `username=${regUsername}&password=${regPassword}&type=foods`;
+  const response = await axios.post(url, data);
+  return response.data.youtubes;
+};
