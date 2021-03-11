@@ -23,20 +23,16 @@ target 'demo3' do
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
   pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+  permissions_path = '../node_modules/react-native-permissions/ios'
+
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
 
   target 'demo3Tests' do
     inherit! :complete
     # Pods for testing
   end
 
-  # Enables Flipper.
-  #
-  # Note that if you have use_frameworks! enabled, Flipper will not work and
-  # you should disable these next few lines.
-  use_flipper!
-  post_install do |installer|
-    flipper_post_install(installer)
-  end
+  
 end
 
 target 'demo3-tvOS' do

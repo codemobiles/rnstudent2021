@@ -64,3 +64,5 @@ $ yarn add react-native-permissions
   
 
   https://www.youtube.com/watch?v=aAXwCs5MGfg
+
+  https://us02web.zoom.us/j/81378365769?pwd=UUF1bWN6V1JFVHFYWi9mamtsRjl4UT09
