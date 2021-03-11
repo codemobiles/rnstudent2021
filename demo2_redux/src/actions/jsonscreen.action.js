@@ -24,6 +24,7 @@ export const loadData = () => {
       const result = await doLoadData();
       dispatch(setJSONToSuccess(result));
     } catch (e) {
+      alert(JSON.stringify(e));
       dispatch(setJSONToFailed([]));
     }
   };
