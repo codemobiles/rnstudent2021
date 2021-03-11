@@ -30,7 +30,36 @@ export default function TabMapScreen() {
     longitudeDelta: LONGITUDE_DELTA,
   });
 
-  return <MapView initialRegion={region} style={{flex: 1}}>
-    <Marker coordinate={region}/> 
-  </MapView>;
+  return (
+    <View style={styles.container}>
+      <MapView
+        initialRegion={region}
+        onPress={(e) => addMarker(e.nativeEvent.coordinate)}
+        style={styles.map}
+        mapType="standard" // NORMAL, SATELLITE, HYBRID
+      >
+        
+      </MapView>
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'flex-end',
+    height: '100%',
+    width: '100%',
+  },
+  banner: {
+    height: 80,
+    width: '100%',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  customView: {
+    width: Platform.OS == 'ios' ? 190 : 160,
+    height: 100,
+  },
+});
