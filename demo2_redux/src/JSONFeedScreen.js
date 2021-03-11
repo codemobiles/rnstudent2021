@@ -9,7 +9,6 @@ import {
   TouchableOpacity,
   Platform,
 } from 'react-native';
-import axios from 'axios';
 import {YouTubeStandaloneAndroid} from 'react-native-youtube';
 import {YouTubeStandaloneIOS} from 'react-native-youtube';
 
@@ -20,32 +19,16 @@ export default function JSONFeedScreen() {
   const [dataArray, setDataArray] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(false);
 
+  const dispatch = useDispatch();
   const jsonReducer = useSelector(({jsonReducer}) => jsonReducer);
 
   React.useEffect(() => {
-    loadData();
+    dispatch(jsonActions.loadData());
 
     setTimeout(() => {
       alert(JSON.stringify(jsonReducer.dataArray));
-    }, 2000);
+    }, 5000);
   }, []);
-
-  loadData = async () => {
-    // show loading
-    setIsLoading(true);
-    setDataArray([]);
-
-    // https://codemobiles.com/adhoc/youtubes/index_new.php?username=admin&password=password&type=foods
-    let url = 'https://codemobiles.com/adhoc/youtubes/index_new.php';
-    let regUsername = 'admin'; // await AsyncStorage.getItem('username')
-    let regPassword = 'password'; // await AsyncStorage.getItem('password')
-    let data = `username=${regUsername}&password=${regPassword}&type=foods`;
-    const response = await axios.post(url, data);
-    setDataArray(response.data.youtubes);
-
-    // hide loading
-    setIsLoading(false);
-  };
 
   playAndroidYoutube = (videoId) => {
     // props.navigation.navigate("Youtube", {item})
@@ -105,7 +88,9 @@ export default function JSONFeedScreen() {
       source={require('./assets/img/bg.png')}>
       <FlatList
         refreshing={isLoading}
-        onRefresh={loadData}
+        onRefresh={() => {
+          dispatch(jsonActions.loadData());
+        }}
         data={dataArray}
         ListHeaderComponent={renderHeader}
         renderItem={renderRow}

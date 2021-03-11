@@ -1,4 +1,5 @@
 import {JSON_FAILED, JSON_FETCHING, JSON_SUCCESS} from '../Constants';
+import axios from 'axios';
 
 // Used by Reducer
 export const setJSONToFetching = () => ({
@@ -17,15 +18,15 @@ export const setJSONToFailed = (payload) => ({
 
 // Used by UI
 export const loadData = () => {
-  return (dispatch = async () => {
+  return async (dispatch) => {
     try {
-      setJSONToFetching();
+      dispatch(setJSONToFetching());
       const result = await doLoadData();
-      setJSONToSuccess(result);
+      dispatch(setJSONToSuccess(result));
     } catch (e) {
-      setJSONToFailed([]);
+      dispatch(setJSONToFailed([]));
     }
-  });
+  };
 };
 
 const doLoadData = async () => {
