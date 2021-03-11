@@ -14,22 +14,15 @@ import {PreviewImage} from './Util/PreviewImage';
 import ImagePicker from 'react-native-image-crop-picker';
 import axios from 'axios';
 import {useSelector, useDispatch} from 'react-redux';
+import * as cameraActions from './actions/camera.action';
 
 export default function CameraScreen() {
   const [image, setImage] = useState(null);
+
+  const dispatch = useDispatch();
   const jsonReducer = useSelector((state) => state.jsonReducer);
+  const cameraReducer = useSelector((state) => state.cameraReducer);
 
-  // stub function
-  openCamera = async (cropIt) => {
-    let image = await ImagePicker.openCamera({
-      cropping: cropIt,
-      width: 500, // width after cropped
-      height: 500, // height after cropped
-      includeExif: true,
-    });
-
-    setImage({uri: image.path, width: image.width, height: image.height});
-  };
   openPhotoGallery = async (cropIt) => {
     let image = await ImagePicker.openPicker({
       // width: 300, // width after cropped
@@ -84,14 +77,14 @@ export default function CameraScreen() {
       <View style={{flexDirection: 'row', justifyContent: 'space-around'}}>
         {/* CAMERA */}
         <TouchableOpacity
-          onPress={() => openCamera(false)}
+          onPress={() => dispatch(cameraActions.takeCamera(false))}
           style={styles.button}>
           <Text style={styles.text}>CAMERA</Text>
         </TouchableOpacity>
 
         {/* CAMERA  + CROP*/}
         <TouchableOpacity
-          onPress={() => openCamera(true)}
+          onPress={() => dispatch(cameraActions.takeCamera(true))}
           style={styles.button}>
           <Text style={styles.text}>CAMERA+CROP</Text>
         </TouchableOpacity>
@@ -108,7 +101,7 @@ export default function CameraScreen() {
         <Text key={item.id}>{item.title}</Text>
       ))}
 
-      <PreviewImage image={image} />
+      <PreviewImage image={cameraReducer.image} />
 
       {image && (
         <TouchableOpacity
