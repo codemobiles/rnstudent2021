@@ -13,9 +13,11 @@ import {
 import {PreviewImage} from './Util/PreviewImage';
 import ImagePicker from 'react-native-image-crop-picker';
 import axios from 'axios';
+import {useSelector, useDispatch} from 'react-redux';
 
 export default function CameraScreen() {
   const [image, setImage] = useState(null);
+  const jsonReducer = useSelector((state) => state.jsonReducer);
 
   // stub function
   openCamera = async (cropIt) => {
@@ -63,7 +65,6 @@ export default function CameraScreen() {
     Alert.alert(JSON.stringify(result.data));
   };
 
-
   return (
     <ImageBackground
       source={require('./assets/img/bg.png')}
@@ -102,6 +103,10 @@ export default function CameraScreen() {
           <Text style={styles.text}>GALLERY</Text>
         </TouchableOpacity>
       </View>
+
+      {jsonReducer.dataArray.map((item) => (
+        <Text key={item.id}>{item.title}</Text>
+      ))}
 
       <PreviewImage image={image} />
 

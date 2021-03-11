@@ -7,12 +7,10 @@ const initialState = {
 };
 
 export default (state = initialState, {type, payload}) => {
-  debugger;
   switch (type) {
     case JSON_FETCHING:
       return {...state, isRefreshing: true, isFailed: false, dataArray: []};
     case JSON_SUCCESS:
-      alert(JSON.stringify(dataArray));
       return {
         ...state,
         isRefreshing: false,
