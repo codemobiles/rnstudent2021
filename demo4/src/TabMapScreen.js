@@ -1,10 +1,7 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from 'react';
+import {View, Text} from 'react-native';
+import MapView, {Marker} from 'react-native-maps';
 
 export default function TabMapScreen() {
-  return (
-    <View>
-      <Text></Text>
-    </View>
-  )
+  return <MapView style={{flex: 1}} />;
 }
