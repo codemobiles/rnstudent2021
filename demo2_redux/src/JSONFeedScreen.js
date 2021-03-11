@@ -16,18 +16,11 @@ import {useSelector, useDispatch} from 'react-redux';
 import * as jsonActions from './actions/jsonscreen.action';
 
 export default function JSONFeedScreen() {
-  const [dataArray, setDataArray] = React.useState([]);
-  const [isLoading, setIsLoading] = React.useState(false);
-
   const dispatch = useDispatch();
   const jsonReducer = useSelector(({jsonReducer}) => jsonReducer);
 
   React.useEffect(() => {
     dispatch(jsonActions.loadData());
-
-    setTimeout(() => {
-      alert(JSON.stringify(jsonReducer.dataArray));
-    }, 5000);
   }, []);
 
   playAndroidYoutube = (videoId) => {
@@ -87,11 +80,9 @@ export default function JSONFeedScreen() {
       style={styles.container}
       source={require('./assets/img/bg.png')}>
       <FlatList
-        refreshing={isLoading}
-        onRefresh={() => {
-          dispatch(jsonActions.loadData());
-        }}
-        data={dataArray}
+        refreshing={jsonReducer.isRefreshing}
+        onRefresh={() => dispatch(jsonActions.loadData())}
+        data={jsonReducer.dataArray}
         ListHeaderComponent={renderHeader}
         renderItem={renderRow}
         keyExtractor={(item) => item.id}
