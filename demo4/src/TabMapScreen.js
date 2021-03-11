@@ -12,7 +12,7 @@ import MapView, {Marker} from 'react-native-maps';
 import CustomCallout from './CustomCallout';
 import openMap from 'react-native-open-maps';
 const {width, height} = Dimensions.get('window');
-import {submitLocation, queryLocations} from './LocationTrackingAPI'
+import {submitLocation, queryLocations} from './LocationTrackingAPI';
 
 const ASPECT_RATIO = width / height;
 // 13.6970244,100.5130343 codemobiles office
@@ -30,5 +30,7 @@ export default function TabMapScreen() {
     longitudeDelta: LONGITUDE_DELTA,
   });
 
-  return <MapView initialRegion={region} style={{flex: 1}} />;
+  return <MapView initialRegion={region} style={{flex: 1}}>
+    <Marker coordinate={region}/> 
+  </MapView>;
 }
