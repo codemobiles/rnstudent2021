@@ -13,7 +13,7 @@ export const setCameraToSuccess = (payload) => ({
 export const takeCamera = (cropIt) => {
   return async (dispatch) => {
     dispatch(setCameraToFetching());
-    const result = await doTakeCamera(cropIt);
+    const image = await doTakeCamera(cropIt);
     dispatch(
       setCameraToSuccess({
         uri: image.path,
