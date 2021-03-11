@@ -1,0 +1,26 @@
+### Test1
+GET http://localhost:3000 HTTP/1.1
+
+
+### Test2
+GET http://localhost:3000/login?username=admin&password=1234 HTTP/1.1
+
+
+### Test3
+POST http://localhost:3000/uploads HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="username";
+
+admin 
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="password";
+
+1234
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="userfile"; filename="cmdev_icon.png"
+Content-Type: image/png
+
+< ./cmdev_icon.png
+------WebKitFormBoundary7MA4YWxkTrZu0gW--

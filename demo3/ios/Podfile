@@ -23,9 +23,13 @@ target 'demo3' do
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
   pod 'react-native-camera', :path => '../node_modules/react-native-camera'
-  permissions_path = '../node_modules/react-native-permissions/ios'
 
-  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'Permission-Contacts', :path => "#{permissions_path}/Contacts.podspec"
+  pod 'Permission-Microphone', :path => "#{permissions_path}/Microphone.podspec"
+  pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications.podspec"
+  pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary.podspec"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
 
   target 'demo3Tests' do
     inherit! :complete
