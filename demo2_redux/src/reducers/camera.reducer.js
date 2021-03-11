@@ -1,3 +1,5 @@
+import {CAMERA_FETCHING, CAMERA_SUCCESS} from '../Constants';
+
 const initialState = {
   uri: null,
   width: 0,
@@ -6,8 +8,15 @@ const initialState = {
 
 export default (state = initialState, {type, payload}) => {
   switch (type) {
-    case typeName:
-      return {...state, ...payload};
+    case CAMERA_FETCHING:
+      return {...state, uri: null};
+    case CAMERA_SUCCESS:
+      return {
+        ...state,
+        uri: payload.uri,
+        width: payload.width,
+        height: payload.height,
+      };
 
     default:
       return state;
