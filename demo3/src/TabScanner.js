@@ -44,8 +44,12 @@ const TabScanner = (props) => {
   );
 };
 
+onResult = (result) => {
+  alert(result);
+};
+
 function onClickScan(props) {
-  props.navigation.navigate('scan', {title: 'Hahaha'});
+  props.navigation.navigate('scan', {title: 'Hahaha', onResult});
 }
 
 export default TabScanner;

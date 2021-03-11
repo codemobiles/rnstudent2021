@@ -11,6 +11,11 @@ export default function ScannerScreen(props) {
     setTimeout(() => {
       setIsReady(true);
     }, 2000);
+
+    setTimeout(() => {
+      props.route.params.onResult('1234');
+      props.navigation.goBack();
+    }, 5000);
   }, []);
 
   const showScanner = () => {
