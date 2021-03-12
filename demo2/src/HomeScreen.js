@@ -92,6 +92,8 @@ export default function HomeScreen(props) {
         }}>
         {/* Username */}
         <Input
+          autoCapitalize="none"
+          keyboardType="email-address"
           onChangeText={(text) => setUsername(text)}
           value={username}
           placeholder="Username"
