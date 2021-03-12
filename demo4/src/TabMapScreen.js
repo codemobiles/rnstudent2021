@@ -53,7 +53,7 @@ export default function TabMapScreen() {
       >
         {markers.map(({coordinate, key}) => (
 
-         <CMMarker coordinate={coordinate} key={key} onClickCallout={onClickCallout} />
+         <CMMarker coordinate={coordinate} id={key} onClickCallout={onClickCallout} />
       ))}
       </MapView>
     </View>
