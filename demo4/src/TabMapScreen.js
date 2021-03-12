@@ -36,7 +36,7 @@ export default function TabMapScreen() {
         initialRegion={region}
         onPress={(e) => addMarker(e.nativeEvent.coordinate)}
         style={styles.map}
-        mapType="standard" // NORMAL, SATELLITE, HYBRID
+        mapType="satellite" // NORMAL, SATELLITE, HYBRID
       >
         
       </MapView>
