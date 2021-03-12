@@ -8,10 +8,12 @@ import {
   ImageBackground,
   Platform,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+
 import AsyncStorage from '@react-native-community/async-storage';
 import {StackActions} from '@react-navigation/native';
 import {Button} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {Input} from 'react-native-elements';
 
 export default function HomeScreen(props) {
   const [username, setUsername] = React.useState('');
@@ -89,29 +91,37 @@ export default function HomeScreen(props) {
           padding: 15,
         }}>
         {/* Username */}
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <View style={{height: 35, width: 35, backgroundColor: 'green'}} />
-          <TextInput
-            value={username}
-            placeholder="Username"
-            onChangeText={(text) => setUsername(text)}
-            style={{backgroundColor: '#0003', flex: 1, marginLeft: 5}}
-          />
-        </View>
+        <Input
+          onChangeText={(text) => setUsername(text)}
+          value={username}
+          placeholder="Username"
+          leftIcon={
+            <Icon
+              name="user"
+              size={24}
+              color="black"
+              style={{marginRight: 8}}
+            />
+          }
+        />
 
         {/* Separator */}
         <View style={{height: 1, backgroundColor: '#fff3', width: null}} />
 
         {/* Password */}
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <View style={{height: 35, width: 35, backgroundColor: 'red'}} />
-          <TextInput
-            value={password}
-            onChangeText={(text) => setPassword(text)}
-            placeholder="Password"
-            style={{backgroundColor: '#0003', flex: 1, marginLeft: 5}}
-          />
-        </View>
+        <Input
+          onChangeText={(text) => setPassword(text)}
+          value={password}
+          placeholder="Password"
+          leftIcon={
+            <Icon
+              name="lock"
+              size={24}
+              color="black"
+              style={{marginRight: 8}}
+            />
+          }
+        />
 
         {/* Login Button */}
         <View style={{height: 10}} />
