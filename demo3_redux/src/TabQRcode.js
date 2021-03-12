@@ -9,12 +9,19 @@ import {
   TextInput,
 } from 'react-native';
 import {ifIphoneX} from 'react-native-iphone-x-helper';
+import * as tabQRCodeActions from './actions/tabqrcode.action';
+import {useSelector, useDispatch} from 'react-redux';
 
 import QRCode from 'react-native-qrcode-svg';
 const PATH_TO_LOGO = './img/cmdev_icon.png';
 
 export default function TabQRcode() {
   const [qrValue, setQrValue] = useState('');
+
+  const dispatch = useDispatch();
+  const tabQRCodeReducer = useSelector(
+    ({tabQRCodeReducer}) => tabQRCodeReducer,
+  );
 
   return (
     <ImageBackground
@@ -46,7 +53,7 @@ export default function TabQRcode() {
           marginBottom: 32,
           marginTop: 32,
         }}
-        onChangeText={(text) => setQrValue(text)}
+        onChangeText={(text) => dispatch(tabQRCodeActions.changeQRValue(text))}
       />
       <ScrollView
         contentContainerStyle={{
@@ -57,7 +64,7 @@ export default function TabQRcode() {
           <CMQRCode
             color="red"
             key={item.toString()}
-            value={qrValue}
+            value={tabQRCodeReducer.payload}
             logo={require(PATH_TO_LOGO)}
           />
         ))}
@@ -66,7 +73,7 @@ export default function TabQRcode() {
           <MyQRCodeClass
             color="green"
             key={item.toString()}
-            value={qrValue}
+            value={tabQRCodeReducer.payload}
             logo={require(PATH_TO_LOGO)}
           />
         ))}
