@@ -49,3 +49,7 @@ supportLibVersion = "28.0.3"
   pod 'Permission-LocationAccuracy', :path => "#{permissions_path}/LocationAccuracy"
   pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+
+
+
+  https://us02web.zoom.us/j/89264007430?pwd=K2t4eGxDNzNOdXlvZE12OWN3SkthUT09
