@@ -1,0 +1,83 @@
+1. Create keystore and certificate
+----------------------------------
+   keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+
+2. Password setting
+   gradle.properties 
+----------------------------------
+    android.useDeprecatedNdk=true
+    MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
+    MYAPP_RELEASE_KEY_ALIAS=my-key-alias
+    MYAPP_RELEASE_STORE_PASSWORD=12345678
+    MYAPP_RELEASE_KEY_PASSWORD=12345678
+
+3. SignConfig
+----------------------------------
+   app/build.gradle
+
+    signingConfigs {
+            release {
+                if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
+                    storeFile file(MYAPP_RELEASE_STORE_FILE)
+                    storePassword MYAPP_RELEASE_STORE_PASSWORD
+                    keyAlias MYAPP_RELEASE_KEY_ALIAS
+                    keyPassword MYAPP_RELEASE_KEY_PASSWORD
+                }
+            }
+        }
+
+    .........
+    signingConfig signingConfigs.release
+    .........
+
+
+4. Subprojects setting
+----------------------------------
+Add this into  :  android/build.gradle
+
+
+
+subprojects {
+    afterEvaluate {project ->
+        if (project.hasProperty("android")) {
+            android {
+                compileSdkVersion 28     // have to match with build.gradle and app/build.gradle ones
+                buildToolsVersion '28.0.3'  // have to match with build.gradle and app/build.gradle ones
+                variantFilter { variant ->
+                    def names = variant.flavors*.name
+                    // To check for a certain build type, use variant.buildType.name == "<buildType>"
+                    if (names.contains("reactNative51") || names.contains("reactNative55") || names.contains("reactNative56")) {
+                        // Gradle ignores any variants that satisfy the conditions above.
+                        setIgnore(true)
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+4.1 AndroidX
+----------------------------------
+npm install jetifier
+npx jetify
+
+https://github.com/react-native-community/react-native-geolocation/issues/39
+
+5. Build
+./gradlew assembleRelease
+ 
+
+ Make App Icon
+ https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html
+
+ sudo react-native-rename "CMAuthen" -b com.codemobiles.rn.cmauthen
+ adb logcat *:S ReactNative:V ReactNativeJS:V 
+
+
+launcher screen
+https://medium.com/handlebar-labs/how-to-add-a-splash-screen-to-a-react-native-app-ios-and-android-30a3cec835ae
+
+
+https://appicon.co/
