@@ -13,6 +13,7 @@ import CustomCallout from './CustomCallout';
 import openMap from 'react-native-open-maps';
 const {width, height} = Dimensions.get('window');
 import {submitLocation, queryLocations} from './LocationTrackingAPI';
+import CMMarker from "./CMMarker"
 
 const ASPECT_RATIO = width / height;
 // 13.6970244,100.5130343 codemobiles office
@@ -37,6 +38,11 @@ export default function TabMapScreen() {
     // console.log(JSON.stringify(result));
   };
 
+  function onClickCallout({latitude, longitude}) {
+    openMap({query: `${latitude}, ${longitude}`, provider: 'google'});
+  }
+  
+
   return (
     <View style={styles.container}>
       <MapView
@@ -46,67 +52,9 @@ export default function TabMapScreen() {
         mapType="satellite" // NORMAL, SATELLITE, HYBRID
       >
         {markers.map(({coordinate, key}) => (
-          <Marker
-            key={key}
-            coordinate={coordinate}
-            onCalloutPress={() => onClickCallout(coordinate)}>
-            {/* Icon */}
-            <View
-              style={{
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
-              <Image
-                source={require('./assets/img/cmdev_icon.png')}
-                style={{
-                  height: 30,
-                  width: 30,
-                  borderColor: 'white',
-                  borderRadius: 15,
-                  borderWidth: 2,
-                }}
-              />
-              <Text
-                style={{
-                  color: '#FFF',
-                  fontSize: 12,
-                  backgroundColor: '#0007',
-                  borderRadius: 3,
-                }}>
-                {coordinate.latitude.toFixed(2)}°,{' '}
-                {coordinate.longitude.toFixed(2)}°{' '}
-              </Text>
-            </View>
 
-            {/* Callout  */}
-            <MapView.Callout tooltip style={styles.customView}>
-              <CustomCallout>
-                <TouchableOpacity
-                  style={{
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'flex-start',
-                  }}>
-                  {/** Showing image in android is not possible now (Lib. Bug) */}
-                  {Platform.OS == 'ios' ? (
-                    <Image
-                      resizeMode="cover"
-                      source={require('./assets/img/cmdev_icon.png')}
-                      style={{height: 20, width: 20, marginRight: 8}}
-                    />
-                  ) : null}
-
-                  <Text style={{fontWeight: 'bold'}}>Pos: </Text>
-                  <Text>
-                    {parseFloat(coordinate.latitude).toFixed(2)} °,{' '}
-                    {parseFloat(coordinate.longitude).toFixed(2)} °
-                  </Text>
-                </TouchableOpacity>
-              </CustomCallout>
-            </MapView.Callout>
-          </Marker>
-        ))}
+         <CMMarker coordinate={coordinate} key={key} onClickCallout={onClickCallout} />
+      ))}
       </MapView>
     </View>
   );
