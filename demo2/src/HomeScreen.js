@@ -112,6 +112,7 @@ export default function HomeScreen(props) {
 
         {/* Password */}
         <Input
+          secureTextEntry
           onChangeText={(text) => setPassword(text)}
           value={password}
           placeholder="Password"
