@@ -1,5 +1,5 @@
 import Axios from 'axios';
-const ip_address = "192.168.0.106"
+const ip_address = "192.168.0.173"
 
 const submitLocation =  async (coordinate)=>{
     let result = await Axios.post(

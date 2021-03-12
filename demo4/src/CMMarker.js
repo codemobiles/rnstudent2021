@@ -11,10 +11,11 @@ import {
 import MapView, {Marker} from 'react-native-maps';
 import CustomCallout from './CustomCallout';
 
-export default function CMMarker({coordinate, id, onClickCallout}) {
+export default function CMMarker(props) {
+    const {coordinate, onClickCallout} = props
     return (
         <Marker
-        key={id}
+        {...props}
         coordinate={coordinate}
         onCalloutPress={() => onClickCallout(coordinate)}>
         {/* Icon */}
