@@ -74,6 +74,7 @@
 		A174A24B04804E0396428B7C /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		A25EDF41EDBB4254A13F340B /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		AE049990BA6B4C611819B6DD /* Pods-demo2-demo2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo2-demo2Tests.debug.xcconfig"; path = "Target Support Files/Pods-demo2-demo2Tests/Pods-demo2-demo2Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B0420A6E25FAFA89005065BC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B078DCB725F9A53F0018D6E8 /* libXCDYouTubeKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libXCDYouTubeKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D576DCB4EFDBDF7F53ED16 /* libPods-demo2-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demo2-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B280932C6210E6FE7159D169 /* libPods-demo2-demo2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demo2-demo2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +182,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0420A6E25FAFA89005065BC /* AudioToolbox.framework */,
 				B078DCB725F9A53F0018D6E8 /* libXCDYouTubeKit.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
@@ -337,6 +339,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = LZ5DS5J2EP;
 						LastSwiftMigration = 1120;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
@@ -775,6 +778,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LZ5DS5J2EP;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = demo2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -798,6 +802,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LZ5DS5J2EP;
 				INFOPLIST_FILE = demo2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (

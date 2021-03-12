@@ -7,11 +7,11 @@ import {
   Image,
   ImageBackground,
   Platform,
-  Button,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-community/async-storage';
 import {StackActions} from '@react-navigation/native';
+import {Button} from 'react-native-elements';
 
 export default function HomeScreen(props) {
   const [username, setUsername] = React.useState('');
@@ -119,11 +119,11 @@ export default function HomeScreen(props) {
 
         {/* Register Button */}
         <View style={{height: 10}} />
-        <TouchableOpacity
+        <Button
+          title="Register"
+          type="outline"
           onPress={() => props.navigation.navigate('Register')}
-          style={{justifyContent: 'center', alignItems: 'center'}}>
-          <Text>Register</Text>
-        </TouchableOpacity>
+        />
       </View>
     </ImageBackground>
   );
